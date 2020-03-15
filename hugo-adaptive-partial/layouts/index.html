@@ -1,0 +1,13 @@
+
+
+<pre>{​{ partial "adaptive.html" . }​}</pre>
+{{ partial "adaptive.html" . }}
+<br>
+<br>
+<pre>{​{ partial "adaptive.html" (dict "ctx" . "data" .Site.Data.feature_custom) }​}</pre>
+{{ partial "adaptive.html" (dict "ctx" . "data" .Site.Data.feature_custom) }}
+<br>
+<br>
+<pre>{​{ partial "adaptive.html" (dict "ctx" . "data" .Site.Data.feature_custom "id" "my-custom-id") }​}</pre>
+<pre>This partial used `.id` to inject the class of element below</pre>
+{{ partial "adaptive.html" (dict "ctx" . "data" .Site.Data.feature_custom "id" "my-custom-id") }}

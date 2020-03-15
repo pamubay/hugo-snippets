@@ -1,0 +1,45 @@
+{{- /* 
+
+  Prepare the Variables, 
+  set the value to nil with help of default function
+  Why? `nil` is not ouputting anything and comparable using `not`
+
+  $ctx always overidden in both cases, you can set anything you want
+
+*/ -}}
+
+{{- $ctx := "" -}}
+{{- $data := default nil -}}
+{{- $id := default nil -}}
+
+{{- if (reflect.IsMap . ) -}}
+  
+  {{- /* Passing Custom Context */ -}}
+  {{- $ctx = .ctx -}}
+  
+  {{- /* Assign value of .data */ -}}
+  {{- $data = cond (not .data) nil .data -}}
+  
+  {{- /* Assign value of .id */ -}}
+  {{- $id = cond (not .id) nil .id  -}}
+
+{{- else -}}
+
+  {{- /* Passing dot context, default behaviour */ -}}
+  {{- $ctx = . -}}
+  
+  {{- /* Default Data for Dot Context */ -}}
+  {{- $data = .Site.Data.feature_default -}}
+  
+{{- end -}}
+
+
+
+{{/* Check if $data is available */}}
+{{ if $data }}
+<ul class="feature-list {{ $id }}">
+  {{ range $name := $data.list }}
+    <li>{{ .name }}, {{ .message }}</li> 
+  {{ end }}
+</ul>  
+{{ end }}

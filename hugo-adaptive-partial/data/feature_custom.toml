@@ -1,0 +1,5 @@
+list = [
+  { name = "Mr. Blue", message = "Good Product" },
+  { name = "Mr. Brown", message = "Nice Product" },
+  { name = "Mr. Yellow", message = "Excelent Service" }
+]

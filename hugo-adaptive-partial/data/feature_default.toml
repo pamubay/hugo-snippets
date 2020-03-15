@@ -1,0 +1,5 @@
+list = [
+  { name = "Erick", message = "Super Good" },
+  { name = "Sam", message = "Very Nice" },
+  { name = "Wanda", message = "Amazing" }
+]
